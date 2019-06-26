@@ -1,6 +1,6 @@
 'use strict';
 
-let arithmetic = module.exports = { };
+let arithmetic = module.exports = {};
 
 arithmetic.isValidInput = function (numbersArray) {
   if (Array.isArray(numbersArray)) {
@@ -10,36 +10,34 @@ arithmetic.isValidInput = function (numbersArray) {
   }
 };
 
-const { isValidInput } = arithmetic;
-
 arithmetic.add = function (numbersArray) {
-  if (!isValidInput(numbersArray)) {
+  if (!arithmetic.isValidInput(numbersArray)) {
     return 'invalid input';
   }
-  return numbersArray.reduce((acc, cur) => acc + cur)
+  return numbersArray.reduce((acc, cur) => acc + cur, 0);
 };
 
 arithmetic.multiply = function (numbersArray) {
-  if (!isValidInput(numbersArray)) {
+  if (!arithmetic.isValidInput(numbersArray)) {
     return 'invalid input';
   }
   return numbersArray.reduce((acc, cur) => acc * cur)
 };
 
 arithmetic.subtract = function (numbersArray) {
-  if (!isValidInput(numbersArray)) {
+  if (!arithmetic.isValidInput(numbersArray)) {
     return 'invalid input';
   }
   return numbersArray.reduce((acc, cur) => acc - cur)
 };
 
 arithmetic.divide = function (numbersArray) {
-  if (!isValidInput(numbersArray)) {
+  if (!arithmetic.isValidInput(numbersArray)) {
     return 'invalid input';
   }
   let quotient = numbersArray.reduce((acc, cur) => {
     if (cur !== 0) {
-      return acc / cur;
+      return parseFloat((acc / cur).toFixed(3)); //limits return to 3 decimal places
     } else if (cur === 0) {
       return `cant't divide by zero!`;
     }
