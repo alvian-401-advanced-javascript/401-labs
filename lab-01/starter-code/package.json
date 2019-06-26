@@ -3,8 +3,17 @@
   "version": "0.0.1",
   "description": "this will be sooooo cool",
   "main": "index.js",
-  "scripts": {},
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "jest --verbose --coverage",
+    "test-watch": "jest --verbose --coverage --watchAll"
+  },
   "author": "",
   "license": "ISC",
-  "dependencies": {}
+  "dependencies": {},
+  "devDependencies": {
+    "jest": "^24.8.0"
+  }
 }
